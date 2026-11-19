@@ -1,1 +1,30 @@
 kubectl run nginx  --image=nginx:1.16
+
+
+Kubernetes cluster was created in just 2–3 clicks. 1
+Kubernetes was introduced as an orchestration/automation tool for containers. 2
+kubectl utility was introduced for both command-line and YAML (manifest file) usage. 23
+Kubernetes Architecture
+Architecture divided into two parts: Master Node (Control Plane) and Worker Node. 4
+Master Node Components:
+API Server — handles all requests and communication. 5
+ETCD — stores the cluster state in key-value pairs (not a database, but a memory/state store). 67
+Scheduler — finds the best node to place a pod. 8
+Controller Manager — manages cluster resources and performs activities. 910
+Worker Node Components:
+Kubelet — agent that passes information between worker and master nodes. 11
+Kube Proxy — handles networking/internet access; works as a Service. 1213
+Container Runtime (Docker) — runs containers/applications. 1415
+Cluster Creation (Google Kubernetes Engine)
+Standard cluster creation was demonstrated; version 1.36 used in production. 16
+Node OS: Container Optimized OS (COS) is recommended. 1718
+Default max pods per node: 110. 1920
+Blue-Green and Canary deployment strategies were explained. 2122
+Hands-On: Running a Pod
+Command used: kubectl run nginx --image=nginx creates an NGINX pod. 23
+kubectl get pods used to check pod status. 24
+Service types covered: Cluster IP, NodePort, Load Balancer. 2526
+A Load Balancer service was created to expose the NGINX pod to the internet. 27
+
+Show sources (1)
+Day-2 of K8s in Batch-45 | 19th Nov 2026 at 8AM IST Q&A (Current meeting)
