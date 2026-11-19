@@ -1,3 +1,10 @@
+kubectl               (can check kuberneties installed or not)
+kubectl get nodes     (will provide node information)
+kubectl cluster-info   (will provide cluster info)
+
+
+
+
 gcloud container clusters get-credentials day1 --region us-east4 --project theta-window-345806
 
 1ˢᵗ      Via Command
