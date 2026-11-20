@@ -73,3 +73,14 @@ day-2
   515  kubectl get po
   516  kubectl describe po nginx11
   517  history
+
+I created private cluster with this clodshell
+
+
+gcloud container clusters create my-private-cluster \
+    --region=us-east4 \
+    --enable-private-nodes \
+    --enable-ip-alias \
+    --disk-type=pd-standard \
+    --disk-size=50 \                                                   (disk size 50 gb taken avoiding low space efrror)
+    --num-nodes=1
