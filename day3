@@ -1,0 +1,19 @@
+Here is a summary of the last 60 minutes of the session:
+
+The session covered several key Kubernetes concepts with practical demonstrations:
+
+Deployment vs Replica Set: Vikas explained that a Replica Set creates multiple pods but has no manager to monitor them. If a pod goes down, no one automatically recreates it. Deployment, on the other hand, manages pods and maintains the desired state. If a pod gets deleted, deployment automatically creates a new one. Students were advised to focus on Deployment and avoid using Replica Set terminology in interviews.
+
+Scaling/Editing Deployment: Vikas demonstrated how to edit a deployment using "kubectl edit deploy" command to change the number of replicas. He showed that changes are applied immediately and verified using "kubectl get pod".
+
+Persistent Volume (PV) and Persistent Volume Claim (PVC): Using Netflix as an example, Vikas explained that PV is the actual data (like a movie), and PVC is when an application or user claims/uses that data. When a user watches a movie, a container is created and the volume is claimed. When the movie is completed, the container is released.
+
+Stateful Set: When different applications (Android, iOS, TV, mobile) use the same data but in different formats, Stateful Set is used instead of Deployment.
+
+Secrets and ConfigMap: Secrets store sensitive information like passwords and tokens. ConfigMap stores non-sensitive configuration information used to connect Kubernetes resources like pods and persistent volumes.
+
+Jobs and Cron Jobs: Jobs are used to perform specific tasks at a particular time.
+
+Practical Exercise - Jenkins Deployment: Vikas ran a Jenkins pod using the command "kubectl run jenkins --image=jenkins/jenkins:lts" and asked students to expose it as a Load Balancer on port 8080, similar to what was done previously with NGINX.
+
+Connecting to Cluster: Vikas demonstrated how to connect to a GKE cluster using the gcloud command, which generates a kubeconfig file. He also mentioned that this can be done from a local machine by installing the Gcloud SDK.
