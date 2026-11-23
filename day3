@@ -17,3 +17,66 @@ Jobs and Cron Jobs: Jobs are used to perform specific tasks at a particular time
 Practical Exercise - Jenkins Deployment: Vikas ran a Jenkins pod using the command "kubectl run jenkins --image=jenkins/jenkins:lts" and asked students to expose it as a Load Balancer on port 8080, similar to what was done previously with NGINX.
 
 Connecting to Cluster: Vikas demonstrated how to connect to a GKE cluster using the gcloud command, which generates a kubeconfig file. He also mentioned that this can be done from a local machine by installing the Gcloud SDK.
+
+
+Here is a summary of the last 10 minutes of the session:
+
+The instructor was demonstrating how to deploy Jenkins on Kubernetes. He created a Jenkins pod using the kubectl run command with the Jenkins LTS image. After the pod was created, he asked students to expose it as a load balancer on port 8080, similar to what they had done earlier with NGINX.
+
+He explained the three types of service exposure in Kubernetes:
+
+Load Balancer - for internet-facing access, gives a public external IP so anyone can access it.
+Node Port - exposes the application only within the same node, so only applications on the same node can communicate.
+Cluster IP - exposes the application across the entire cluster, meaning all pods and services within the cluster can communicate with it, regardless of which node they are on.
+Students like Sanket, Bala, Mandhir, and Rajiv successfully deployed Jenkins and got it running. The instructor verified their work by checking the external IP via the kubectl get svc command.
+
+There was also a brief discussion about Kubernetes Secrets. One student mentioned that Kubernetes secrets are base64 encoded and can be easily decoded, raising a security concern. The instructor acknowledged this and mentioned that tools like HashiCorp Vault can be used as a more secure alternative, but stayed focused on the Kubernetes-native secret approach for the class.
+
+The session then moved toward a discussion about unlocking Jenkins, where the instructor guided students on how to access the Jenkins container and get the initial unlock password to complete the Jenkins setup on Kubernetes.
+Here are the practical commands used in the session:
+
+Connect to GKE cluster:
+gcloud container clusters get-credentials --project
+
+Get nodes:
+kubectl get nodes
+
+Create a deployment:
+kubectl create deployment nginx-deploy --image=nginx
+
+Get deployments:
+kubectl get deploy
+
+Get pods:
+kubectl get pod
+
+Delete a pod:
+kubectl delete pod
+
+Edit a deployment (to change replicas or config):
+kubectl edit deploy
+Then change the replicas value, save with Escape + :wq + Enter
+
+Get deployment in YAML format:
+kubectl get deploy -o yaml
+
+Run a Jenkins pod:
+kubectl run jenkins --image=jenkins/jenkins:lts
+
+Execute command inside a pod (to get Jenkins unlock password):
+kubectl exec -it
+
+Get services (to find load balancer IP):
+kubectl get svc
+
+Expose a pod as a load balancer service on port 8080:
+This was done via UI (Workloads > Select pod > Expose > Choose Load Balancer > Port 8080), but can also be done via command:
+kubectl expose pod jenkins --type=LoadBalancer --port=8080
+
+Get all resources:
+kubectl get all
+
+Clear terminal:
+clear
+
+These commands cover cluster connection, deployment creation, scaling, editing, pod access, and service exposure as practiced in the session.
