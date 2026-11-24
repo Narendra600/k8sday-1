@@ -29,3 +29,8 @@ Deployment vs. Service
 Deployment manages a group of pods; Service exposes pods and handles connectivity/integration between microservices. 262728
 
 Show sources (1)
+Naga Pavan Reddy Jorepalli: New, new code we are writing.
+
+Shubhendu Sharma: We are creating a consolidated YAML file, and in which we have different, different YAMLs.
+
+Vikas from CloudDevOpsHub: Correct. Different, different consolidated… different, different services, I'm consolidated in a single file. Okay, that's why it's become 900. 70 line per microservice, 10 microservices, around 700 to 800 code. Yes, no? Okay. Second, after this, what he created? Nicha, nicha, nicha. Okay, it's maybe 3 lines, that's the guy. Very 
