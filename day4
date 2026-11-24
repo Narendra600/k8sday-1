@@ -2,5 +2,30 @@ https://github.com/GoogleCloudPlatform/microservices-demo/tree/main/src
 https://github.com/CloudDevOpsHub/MultiCloud-DevOps-AI-Challenge
 https://github.com/GoogleCloudPlatform/microservices-demo/blob/main/release/kubernetes-manifests.yaml
 git clone https://github.com/GoogleCloudPlatform/microservices-demo.git
+QUSETION- What happen, while deploying we get an error and one of the serves is not deployed or pod is not created how can we get to know that
+Here is a summary of the session (Day 3 of Kubernetes, Project-2, Batch-45):
 
+YAML File Creation & Structure
 
+The session began with creating a Kubernetes YAML file from scratch (no cloning), using .yml extension. 12
+A consolidated/mono YAML file was written containing all microservices — deployments, services, and service accounts — resulting in ~900 lines (70 lines per microservice × 10 microservices). 34
+Key Concepts Covered
+
+Labels & Selectors: Used to integrate/connect microservices with each other. 567
+kubectl create vs kubectl apply: create is used the first time; apply is used for subsequent updates. 8
+Single-file deployment: One command (kubectl create -f kubernetes-manifest.yml) deploys all microservices at once — enabling single-click deployment. 91011
+Mono Repo concept: Introduced as a modern approach (emerged ~3 years ago) for single-repo, single-deployment strategy. 1213
+Live Deployment on GKE
+
+A GKE cluster was connected, the repo was cloned, and the manifest was applied. 91415
+All pods, deployments, and services were verified via kubectl get pod, kubectl get deploy, and kubectl get all. 161718
+Resilience Demo
+
+The payment service pod was deleted to demonstrate downtime; it auto-recovered via the Deployment controller. 192021
+Solution discussed: increase replicas for critical services (e.g., front-end: 3–5 replicas) to achieve zero downtime. 222324
+Auto-scaling will be covered in the next class. 25
+Deployment vs. Service
+
+Deployment manages a group of pods; Service exposes pods and handles connectivity/integration between microservices. 262728
+
+Show sources (1)
