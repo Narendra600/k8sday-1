@@ -1,0 +1,20 @@
+Here is a summary of the session covered in the context:
+
+Horizontal Pod Autoscaler (HPA) Demo
+The instructor (Vikas) walked students through setting up an HPA with minimum 2 replicas, maximum 5 replicas, and a CPU threshold of 2%. Students practiced running kubectl get hpa to verify the setup. A BusyBox container was used as a load generator to simulate traffic and trigger autoscaling. Once the load generator was deleted, the pod count was expected to return to the minimum.
+
+Common Kubernetes Issues Discussion
+The session included a practical discussion on real-time Kubernetes issues faced in companies:
+
+ImagePullBackOff: Caused by unavailable or private images, wrong tags, or insufficient access permissions.
+CrashLoopBackOff: Often caused by incorrect liveness or readiness probe timing values. Applications may need more than a few seconds to start, so probe thresholds must be tuned accordingly.
+Pod Not Starting: Can be due to insufficient CPU or memory resources in the cluster.
+Service Not Accessible: Often caused by wrong port mapping or network policy restrictions.
+Volume Claim Issues: Related to insufficient storage or incompatible storage configurations.
+Node Not Ready: Can be caused by network issues, invalid certificates, hardware problems, or cloud region capacity limits. The describe node command was recommended to diagnose events.
+Failed Scheduling: Related to taint and toleration concepts, used when patching a specific node by draining it and blocking new pods from being scheduled on it.
+RBAC (Role-Based Access Control)
+Vikas briefly explained RBAC, where roles are assigned to users (e.g., L1 support, developers, DevOps) to control what actions they can perform in the cluster, such as restricting edit or delete permissions.
+
+Open Policy Agent (OPA)
+Vikas briefly mentioned OPA as an advanced policy management tool used in some ecosystems, though not commonly used in most companies.
