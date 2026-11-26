@@ -19,3 +19,30 @@ Rolling Update and Rollout: He showed how to roll out new features to all pods u
 Logs and Troubleshooting: He covered a troubleshooting flow including checking pod status, using describe to read events, checking logs, using previous logs if current logs are unavailable, and handling errors like ImagePullBackOff and CrashLoopBackOff.
 
 Readiness and Liveness Probes: He briefly touched on probes, explaining that if an application takes 5 minutes to start, the liveness probe timeout should be adjusted accordingly, otherwise Kubernetes will keep restarting the pod and logs will never be captured.
+
+
+Here are key questions and answers based on the meeting summary:
+
+Q1: What is ConfigMap and why is it used?
+A1: ConfigMap is used to map configuration data to applications. In the session, it was used to map database URLs and application mode (Production) to the NGINX application without hardcoding values.
+
+Q2: What is the difference between kubectl create and kubectl apply?
+A2: Both commands are similar, but best practice is to use create for the first time and apply for subsequent updates to an existing resource.
+
+Q3: What is Ingress in Kubernetes?
+A3: Ingress manages external traffic routing to internal services. It defines routing rules for how traffic flows into the application. It avoids the need for multiple external IPs (which are chargeable) by routing traffic through a single entry point.
+
+Q4: How do you scale a deployment in Kubernetes?
+A4: Use the kubectl scale command followed by the deployment name and the desired number of replicas. For example, scaling to 5 replicas can be done without UI access.
+
+Q5: What is the difference between rollout and rollback?
+A5: Rollout deploys a new version or feature to all pods. Rollback reverts to a previous version if the new version fails.
+
+Q6: What is the troubleshooting approach for a pod not running?
+A6: First use kubectl get pods to check status. Then use kubectl describe pod to read events. Check logs using kubectl logs. If logs are unavailable, check previous logs using --previous flag. Also check node health using kubectl get pods -o wide.
+
+Q7: What are CrashLoopBackOff and ImagePullBackOff errors?
+A7: ImagePullBackOff means the container image name, tag, or registry access is incorrect. CrashLoopBackOff means the pod starts but keeps crashing, often due to insufficient resources or application errors.
+
+Q8: What is Prometheus and Grafana used for in Kubernetes?
+A8: They are used for continuous monitoring of the Kubernetes environment. Since manually checking thousands of containers and logs is not practical, Prometheus collects metrics and Grafana visualizes them for better observability.
