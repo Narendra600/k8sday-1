@@ -42,7 +42,7 @@ kubectl scale deployment demo-app --replicas=5
 
 kubectl rollout status deployment demo-app
 
-kubectl logs -l app=demo -f
+kubectl logs -l app=demo -f                                                (u can check log of application)
 
 kubectl exec -it deploy/demo-app -- bash
 
