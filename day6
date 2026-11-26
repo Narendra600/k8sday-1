@@ -1,0 +1,75 @@
+https://github.com/CloudDevOpsHub/K8sDemo
+FULL feature Demo of K8s
+
+Get the 
+https://github.com/CloudDevOpsHub/K8sDemo/tree/main
+
+Part-1 
+1. Create a Kubernetes Namespace
+
+kubectl create namespace k8s-workshop
+kubectl config set-context --current --namespace=k8s-workshop
+
+cd K8sdemo
+2nd Deploy Secret 
+kubectl apply -f Secret.yaml
+
+kubectl get secret db-secret -o yaml 
+
+kubectl get secret 
+
+
+3rd Deploy Config Map
+kubectl apply -f ConfigMap.yaml
+kubectl describe configmap app-config
+
+4th  Deploy a Demo App
+kubectl apply -f defaultnginx.yaml
+kubectl get pods -w   # watch rollout live
+
+5th Deploy Service 
+kubectl apply -f service.yaml
+
+6th Deploy Ingress Ingress for Public Access with URL 
+kubectl apply -f GCPingress.yaml
+
+
+verify PORD FORword :-   kubectl port-forward svc/demo-service 8080:80
+
+----------------
+
+kubectl scale deployment demo-app --replicas=5
+
+kubectl rollout status deployment demo-app
+
+kubectl logs -l app=demo -f
+
+kubectl exec -it deploy/demo-app -- bash
+
+kubectl apply -f ingress.yaml
+kubectl get ingress demo-ingress -w
+
+kubectl port-forward svc/demo-service 8080:80
+
+------------------
+
+
+Part 2 with OWN HTML file 
+
+1️⃣ Create index.html (Welcome Page)
+
+2️⃣ Create a ConfigMap from index.html
+
+reate a ConfigMap from index.html
+
+kubectl create configmap web-content \
+  --from-file=index.html \
+  -n k8s-workshop
+
+3️⃣ Update Deployment to Mount HTML into NGINX
+kubectl apply -f mountnginx.yaml
+kubectl rollout status deployment demo-app
+
+4️⃣ Test via Ingress 
+
+kubectl port-forward svc/demo-service 8080:80
