@@ -1,0 +1,21 @@
+Here is a summary of the session covered in the meeting transcript:
+
+The instructor (Vikas) conducted a hands-on Kubernetes session covering the following key topics:
+
+ConfigMap and Secrets: He demonstrated how to create and describe ConfigMaps for mapping application configuration like database URLs and application mode. He also discussed how secrets (like DB secrets) are named in real company environments using naming conventions like "DB-secrets-prod" or "DB-secrets-preprod."
+
+Deployment and Pods: He deployed an NGINX frontend application with two replicas, showed the pod lifecycle stages (Pending, Container Creating, Running), and verified pods using kubectl commands.
+
+Services: He created a ClusterIP service (not a LoadBalancer) to connect pods internally using kube-proxy.
+
+Ingress: He explained Ingress as a way to route external traffic to internal services without needing an external IP for every service, which avoids extra cloud charges. He also explained that Ingress uses a controller (GCP Ingress controller in this case) and supports routing rules.
+
+Port Forwarding and Web Preview: Since no external IP was assigned, he used port forwarding and Google Cloud's web preview to access the application in the browser.
+
+Scaling: He demonstrated manual scaling of replicas from 2 to 5 using the kubectl scale command. He also explained that if a new rollout is done from a YAML file that still says 2 replicas, Kubernetes will revert back to 2 due to the desired state.
+
+Rolling Update and Rollout: He showed how to roll out new features to all pods using the rollout command, and explained that mixing old and new versions across pods is not a good practice.
+
+Logs and Troubleshooting: He covered a troubleshooting flow including checking pod status, using describe to read events, checking logs, using previous logs if current logs are unavailable, and handling errors like ImagePullBackOff and CrashLoopBackOff.
+
+Readiness and Liveness Probes: He briefly touched on probes, explaining that if an application takes 5 minutes to start, the liveness probe timeout should be adjusted accordingly, otherwise Kubernetes will keep restarting the pod and logs will never be captured.
