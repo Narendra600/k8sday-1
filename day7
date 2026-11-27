@@ -3,7 +3,26 @@ https://artifacthub.io/
 https://helm.sh/
 https://ocgroups.dev/cncf/group/cloud-native-indore
 Prometheus - collects metrics and Grafana is visualization tool
+Here is a summary of the session:
 
+The session began with Vikas welcoming participants and introducing the agenda: Prometheus and Grafana as a monitoring stack for Kubernetes environments.
+
+Why Monitoring is Required:
+Vikas explained the need for continuous monitoring through practical examples. Key reasons included: servers going down and logs getting deleted, large environments with 100+ machines making manual log checking impossible, hackers deleting logs, and storage limitations of keeping logs on individual servers. The solution discussed was a centralized logging and monitoring system.
+
+Types of Monitoring:
+Three types were discussed. Infrastructure monitoring covers CPU, memory, disk, network, and VMs. Application monitoring covers logs, APIs, transactions, error logs, and performance. Network monitoring covers throughput, packet loss, and data flow. Various tools were mentioned by participants including SolarWinds, Prometheus and Grafana, ELK Stack, Dynatrace, Nagios, Splunk, and CloudWatch.
+
+CNCF and Helm:
+Vikas introduced CNCF (Cloud Native Computing Foundation) as an open source community managing cloud-native tools like Kubernetes. He explained that Helm is the package manager for Kubernetes, similar to APT or YUM for Linux. Helm Charts are pre-built application packages available on Artifact Hub (formerly Helm Hub). The values.yaml file in Helm is used to configure application parameters.
+
+Cluster Setup:
+Vikas created a Kubernetes cluster on Google Cloud named "monitoring-setup" with one node and 30GB storage. He confirmed Helm was pre-installed on Google Cloud clusters and demonstrated checking the version.
+
+Prometheus and Grafana Architecture:
+Prometheus collects metrics from the Kubernetes cluster using two components. Kube State Metrics collects information about the overall cluster state including applications and namespaces. Node Exporter collects node-level infrastructure information. Prometheus stores this data in a time-series database using persistence volumes. Grafana is the visualization tool that connects to Prometheus, runs PromQL queries, and displays dashboards and alerts. Grafana can also connect to many other data sources.
+
+The session was hands-on and practical, with participants sharing their real-world monitoring tool experiences throughout.
 
 
 
