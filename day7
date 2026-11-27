@@ -23,7 +23,31 @@ Prometheus and Grafana Architecture:
 Prometheus collects metrics from the Kubernetes cluster using two components. Kube State Metrics collects information about the overall cluster state including applications and namespaces. Node Exporter collects node-level infrastructure information. Prometheus stores this data in a time-series database using persistence volumes. Grafana is the visualization tool that connects to Prometheus, runs PromQL queries, and displays dashboards and alerts. Grafana can also connect to many other data sources.
 
 The session was hands-on and practical, with participants sharing their real-world monitoring tool experiences throughout.
+Here are some questions and answers based on the session:
 
+Q1: Why is monitoring required in a production environment?
+A1: Monitoring is required to track CPU, memory, and disk usage, to maintain centralized logs when servers go down, to detect unauthorized access by hackers, and to avoid storing heavy log files on individual machines. A centralized monitoring system solves all these problems.
+
+Q2: What is Prometheus?
+A2: Prometheus is a monitoring tool that collects and stores metrics from a Kubernetes cluster using components like kube-state-metrics and node exporter. It stores data in a time-series database and uses PromQL queries to fetch information.
+
+Q3: What is Grafana?
+A3: Grafana is a visualization tool that connects to Prometheus as a data source and displays metrics in the form of dashboards and graphs. It can also be configured to send alerts to services like Slack.
+
+Q4: What is Helm?
+A4: Helm is a package manager for Kubernetes, similar to APT or YUM for Linux. It uses charts to define, install, and upgrade Kubernetes applications. Charts are available on the Artifact Hub website.
+
+Q5: What is the Artifact Hub?
+A5: Artifact Hub is a repository where Helm charts for various Kubernetes applications are available. It was previously known as Helm Hub. It hosts thousands of charts including Prometheus, Grafana, Argo CD, and many more.
+
+Q6: What is CNCF?
+A6: CNCF stands for Cloud Native Computing Foundation. It is an open-source community that manages and supports cloud-native tools like Kubernetes, Helm, Prometheus, and many others. Major companies like Google and Microsoft are contributors.
+
+Q7: What are the types of monitoring discussed in the session?
+A7: Three types were discussed. Infrastructure monitoring covers CPU, memory, disk, and servers. Application monitoring covers application logs, APIs, transactions, and performance. Network monitoring covers packet loss, throughput, and network outages.
+
+Q8: How does Helm work?
+A8: Helm reads chart definitions and values from a values.yaml file, processes them, and communicates with the Kubernetes API to create the required pods and applications inside the cluster.
 
 
 
