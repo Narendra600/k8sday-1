@@ -19,3 +19,35 @@ helm install kube-prometheus-stack prometheus-community/kube-prometheus-stack --
 “kube-prometheus-stack” is the name of the release. You can change this if you want.
 “prometheus-community/kube-prometheus-stack” is the name of the chart.
 “monitor” is the name of the namespace where we are going to deploy the operator.
+
+
+
+
+Here is a summary of the Grafana-related commands explained by Vikas during the session:
+
+Install Kube Prometheus Stack via Helm
+Vikas walked through a Helm-based installation script. Line number 13 was about adding the artifactory/repo location to the local cluster. Line number 28 was the key command that deployed the stack, and once executed, it showed all the pods being deployed with their names and status information.
+
+Check Running Pods
+After installation, the command used was:
+kubectl get pods -n monitor
+This showed that 5 pods were running in the monitoring namespace. Vikas simplified the longer helm-style command into this straightforward kubectl command.
+
+Get Grafana Admin Password
+The next command retrieved the Grafana admin password from Kubernetes secrets:
+kubectl get secrets -n monitor (with a decode step)
+Vikas explained that the password is stored as a secret in Kubernetes and needs to be decoded to read it in plain text.
+
+Port Forwarding to Access Grafana UI
+A port-forwarding command was executed to access Grafana on port 3000. The steps involved:
+
+Exporting the pod name as a variable using kubectl from the monitoring namespace.
+Running port-forward using that variable to map port 3000 locally.
+Then going to Web Preview and changing the port to 3000 to open the Grafana UI in the browser.
+Login to Grafana
+Once the UI opened, the username was admin and the password was the one retrieved from the secret in step 3. Vikas instructed to copy the password and log in.
+
+Prometheus Port (9090)
+It was also mentioned that Prometheus runs on port 9090, which can similarly be accessed via port forwarding.
+
+Overall, Vikas guided the session step by step, with Rajveer Singh Shekhawat sharing his screen to demonstrate the commands live. The cluster had 4GB RAM which caused some slowness, but the setup was successfully completed.
